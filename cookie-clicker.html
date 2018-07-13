@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>0 Cookies</title>
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <p id='cookiesPerSecond'></p>
+    <p id='prestiges'></p>
+    <a href="#" onclick="add()"><img src='img/cookie.jpeg' /></a>
+    <br />
+    You have:
+    <input type="text" id="text" disabled style='text-align: center;' />
+    Cookies.
+    <br />
+    <button class='btn btn-success'><a href='#' onclick="save()">Save</a></button>
+    <button class='btn btn-warning'><a href='#' onclick="load()">Load</a></button>
+    <br />
+    <p>Buy 1 Auto Clicker</p>
+    <button><a href='#' onclick="buyAutoClick();"><img src='img/clicker.png' width='40px' height='50px' /></a></button>
+    <p id='AutoClickCost'> Cookies</p>
+    <p id="AutoClickAmount">You Own 0 Auto Clickers</p>
+    <br />
+    <p>Buy 1 Factory</p>
+    <button><a href='#' onclick="buyFactory();"><img src='img/factory.png' width='60px' height='70px' /></a></button>
+    <p id='FactoryCost'>15 Cookies</p>
+    <p id="FactoryAmount">You Own 0 Factories</p>
+    <br />
+    <p>Multiplier x2 Upgrade</p>
+    <button><a href='#' onclick="upgradeMultiplier();"><span id='amountMultiplier2'>x2</span></a></button>
+    <p id='MultiplierCost'>200 Cookies</p>
+    <p id="MultiplierAmount">Your Multiplier is currently x1</p>
+    <button type='button' class='btn btn-danger' data-toggle="modal" data-target='#warningModal'>Reset</button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#prestigeModal">Prestige</button>
+    <div class="modal" tabindex="-1" role="dialog" id='prestigeModal'>
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">ARE YOU SURE YOU WANT TO PRESTIGE?</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>If you prestige, you will lose all your progress, but all cookies gained come faster.</p>
+            <br>
+            <p>Prestige cost: <span id='costToPrestige'></span></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class='btn btn-danger' onclick="rebirth();" data-dismiss="modal" id='prestige-button'>Prestige</button>
+            <button type="button" data-dismiss="modal">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" tabindex="-1" role="dialog" id='warningModal'>
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">ARE YOU SURE YOU WANT TO RESET THE GAME?</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>This will not upgrade your multiplier.</p>
+            <br>
+            <button class='btn btn-danger'><a href='#' onclick="reset();">Reset</a></button>
+          </div>
+          <div class="modal-footer">
+            <button type="button" data-dismiss="modal">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
