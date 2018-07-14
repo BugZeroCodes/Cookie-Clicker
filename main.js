@@ -19,6 +19,11 @@ function update() {
   } else {
     $('#prestige-button').show();
   }
+  if (prestige >= 1) {
+    $('#cookie img').attr('src', 'img/cookie.jpeg');
+  } else if (prestige >= 10) {
+    $('#cookie img').attr('src', 'img/finalcookie.jpeg')
+  }
 }
 var multiplier = 1;
 var cookieCount = 0;
@@ -26,6 +31,7 @@ var autoClick = 0;
 var factories = 0;
 var prestige = 0;
 var prestCost = 1000000;
+var maxItems = 150;
 function timer() {
   cookieCount += autoClick * multiplier;
   cookieCount += factories * 5 * multiplier;

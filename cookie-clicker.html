@@ -11,7 +11,8 @@
   <body>
     <p id='cookiesPerSecond'></p>
     <p id='prestiges'></p>
-    <a href="#" onclick="add()"><img src='img/cookie.jpeg' /></a>
+    <p id='maximumItems'></p>
+    <a href="#" onclick="add()" id='cookie'><img src='img/startingcookie.jpeg' /></a>
     <br />
     You have:
     <input type="text" id="text" disabled style='text-align: center;' />
@@ -36,7 +37,7 @@
     <p id="MultiplierAmount">Your Multiplier is currently x1</p>
     <button type='button' class='btn btn-danger' data-toggle="modal" data-target='#warningModal'>Reset</button>
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#prestigeModal">Prestige</button>
-    <div class="modal" tabindex="-1" role="dialog" id='prestigeModal'>
+    <div class="modal fade" tabindex="-1" role="dialog" id='prestigeModal'>
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -69,7 +70,7 @@
           <div class="modal-body">
             <p>This will not upgrade your multiplier.</p>
             <br>
-            <button class='btn btn-danger'><a href='#' onclick="reset();">Reset</a></button>
+            <button class='btn btn-danger'><a href='#' onclick="reset();" data-dismiss="modal">Reset</a></button>
           </div>
           <div class="modal-footer">
             <button type="button" data-dismiss="modal">Cancel</button>
