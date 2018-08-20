@@ -11,18 +11,12 @@
 <script src="main.js"></script>
   </head>
   <body>
-    <p>Select a gamemode...</p>
+    <p style='color: black;'>Select a gamemode...</p>
+    <button type="button" name="button" id='toggleNightMode'>Day/Night Mode</button>
 
     <div id="selection">
-      <a href="../original/cookie-clicker.html" class='btn btn-light' id='toClassic'>Normal</a> |
+      <a href="../original/cookie-clicker.html" class='btn btn-light' id='toClassic' style='border-style: groove'>Normal</a> |
       <a href="../hacked/cookie-clicker.html" class="btn btn-dark" id='toCreative'>Creative</a>
-      <br>
-      <ul id='standard'>
-        <h4>The Classic Cookie Clicker Experience</h4>
-        <li>0 Cookies at start</li>
-        <li>Saving/Loading</li>
-        <li>1000000 Cookies to Prestige</li>
-      </ul>
       <br>
       <ul id='creative'>
         <h4>The Revamped Cookie Clicker Experience</h4>
@@ -30,6 +24,13 @@
         <li>No Saving/Loading</li>
         <li>0 Cookies to Prestige</li>
       </ul>
+      <ul id='standard'>
+        <h4>The Classic Cookie Clicker Experience</h4>
+        <li>0 Cookies at start</li>
+        <li>Saving/Loading</li>
+        <li>1000000 Cookies to Prestige</li>
+      </ul>
+      <br>
     </div>
   </body>
 </html>

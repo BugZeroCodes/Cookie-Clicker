@@ -42,6 +42,19 @@ function update() {
 function changeCookie(imageURL) {
   $('#cookie img').attr('src', imageURL);
 }
+$('#toggleNightMode').click(function() {
+  if (nightMode) {
+    nightMode = false;
+    $('body').css('background-color', 'white');
+    $('p, #standard, #creative').css('color', 'black');
+    $('#toggleNightMode').text('Day Mode');
+  } else {
+    nightMode = true;
+    $('body').css('background-color', 'black');
+    $('p, #standard, #creative').css('color', 'white');
+    $('#toggleNightMode').text('Night Mode');
+  }
+});
 var multiplier = 1;
 var cookieCount = 10000000;
 var autoClick = 1000000000000;

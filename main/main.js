@@ -1,3 +1,4 @@
+var nightMode = false;
 $(document).ready(function() {
   $('#standard, #creative').hide();
   $('#toClassic').hover(function() {
@@ -11,5 +12,18 @@ $(document).ready(function() {
   });
   $('#toCreative').mouseleave(function() {
     $('#creative').hide(2000);
+  });
+  $('#toggleNightMode').click(function() {
+    if (nightMode) {
+      nightMode = false;
+      $('body').css('background-color', 'white');
+      $('p, #standard, #creative').css('color', 'black');
+      $('#toggleNightMode').text('Day Mode');
+    } else {
+      nightMode = true;
+      $('body').css('background-color', 'black');
+      $('p, #standard, #creative').css('color', 'white');
+      $('#toggleNightMode').text('Night Mode');
+    }
   });
 });
