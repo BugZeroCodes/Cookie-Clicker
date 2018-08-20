@@ -43,7 +43,7 @@ function changeCookie(imageURL) {
   $('#cookie img').attr('src', imageURL);
 }
 var multiplier = 1;
-var cookieCount = 1000000000000;
+var cookieCount = 10000000;
 var autoClick = 1000000000000;
 var factories = 1000000000000;
 var prestige = 1000000000000;
