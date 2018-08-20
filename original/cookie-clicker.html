@@ -12,7 +12,7 @@
     <p id='cookiesPerSecond'></p>
     <p id='prestiges'></p>
     <p id='maximumItems'></p>
-    <a href="#" onclick="add()" id='cookie'><img src='img/startingcookie.jpeg' /></a>
+    <a href="#" onclick="add()" id='cookie'><img src='../img/startingcookie.jpeg' /></a>
     <br />
     You have:
     <input type="text" id="text" disabled style='text-align: center;' />
@@ -22,12 +22,12 @@
     <button class='btn btn-warning'><a href='#' onclick="load()">Load</a></button>
     <br />
     <p>Buy 1 Auto Clicker</p>
-    <button><a href='#' onclick="buyAutoClick();"><img src='img/clicker.png' width='40px' height='50px' /></a></button>
+    <button><a href='#' onclick="buyAutoClick();"><img src='../img/clicker.png' width='40px' height='50px' /></a></button>
     <p id='AutoClickCost'> Cookies</p>
     <p id="AutoClickAmount">You Own 0 Auto Clickers</p>
     <br />
     <p>Buy 1 Factory</p>
-    <button><a href='#' onclick="buyFactory();"><img src='img/factory.png' width='60px' height='70px' /></a></button>
+    <button><a href='#' onclick="buyFactory();"><img src='../img/factory.png' width='60px' height='70px' /></a></button>
     <p id='FactoryCost'>15 Cookies</p>
     <p id="FactoryAmount">You Own 0 Factories</p>
     <br />
@@ -37,6 +37,10 @@
     <p id="MultiplierAmount">Your Multiplier is currently x1</p>
     <button type='button' class='btn btn-danger' data-toggle="modal" data-target='#warningModal'>Reset</button>
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#prestigeModal">Prestige</button>
+    <br>
+    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#milestoneList">Milestones</button>
+    <br>
+    <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#settingsList"><img src='../img/gear.png' width='60' height='70' /></button>
     <div class="modal fade" tabindex="-1" role="dialog" id='prestigeModal'>
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -74,6 +78,48 @@
           </div>
           <div class="modal-footer">
             <button type="button" data-dismiss="modal">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" tabindex="-1" role="dialog" id='milestoneList'>
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">All milestones</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <h3>Basic Milestones</h3>
+            <ul>
+              <li>100 Auto Clickers: +1000 Cookies</li>
+              <li>100 Factories: +10000 Cookies</li>
+            </ul>
+            <h3 style='color: red;'>Hard Milestones</h3>
+            <ul>
+              <li>Multiplier x1500 = +1000000 Cookies</li>
+            </ul>
+            <h3 style='color: #FFD700;'>Legendary Milestones</h3>
+            <ul>
+              <li>10 Prestiges = Multiplier + 2000</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" tabindex="-1" role="dialog" id='settingsList'>
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Settings</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Work in Progress
           </div>
         </div>
       </div>

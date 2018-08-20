@@ -3,7 +3,7 @@ function update() {
   document.title = cookieCount + " Cookies";
 
   document.getElementById('MultiplierCost').innerHTML = ((multiplier+1) * 100) + " Cookies";
-  document.getElementById('MultiplierAmount').innerHTML = "x" + (multiplier+1);
+  document.getElementById('MultiplierAmount').innerHTML = "Your multiplier is currently x" + (multiplier+1);
 
   document.getElementById('AutoClickAmount').innerHTML = "You Own " + autoClick + " Auto Clickers";
   document.getElementById('AutoClickCost').innerHTML = ((autoClick+1) * 12) + " Cookies";
@@ -20,46 +20,42 @@ function update() {
     $('#prestige-button').show();
   }
   if (prestige >= 1) {
-    $('#cookie img').attr('src', 'img/cookie.jpeg');
-  } else if (prestige >= 10) {
-    $('#cookie img').attr('src', 'img/finalcookie.jpeg')
+    changeCookie('../img/cookie.jpeg')
+  }
+  if (prestige >= 5) {
+    changeCookie('../img/finalcookie.png');
+  }
+  // Milestone Rewards
+  if (autoClick === 100) {
+    cookieCount += 1000;
+  }
+  if (factories === 100) {
+    cookieCount += 10000;
+  }
+  if (multiplier === 1500) {
+    cookieCount += 1000000;
+  }
+  if (prestige === 10) {
+    multiplier *= 2000;
   }
 }
+function changeCookie(imageURL) {
+  $('#cookie img').attr('src', imageURL);
+}
 var multiplier = 1;
-var cookieCount = 0;
-var autoClick = 0;
-var factories = 0;
-var prestige = 0;
-var prestCost = 1000000;
-var maxItems = 150;
+var cookieCount = 1000000000000;
+var autoClick = 1000000000000;
+var factories = 1000000000000;
+var prestige = 1000000000000;
+var prestCost = 0;
 function timer() {
   cookieCount += autoClick * multiplier;
   cookieCount += factories * 5 * multiplier;
   update();
 }
-setInterval(timer, 500);
+setInterval(timer, 1000);
 function add() {
   cookieCount += 1;
-  update();
-}
-function save() {
-  localStorage.setItem('cookiecount', cookieCount);
-  localStorage.setItem('autoclick', autoClick);
-  localStorage.setItem('factory', factories);
-  localStorage.setItem('multiplier', multiplier);
-  localStorage.setItem('prestiges', prestige);
-}
-function load() {
-  cookieCount = localStorage.getItem('cookiecount');
-  cookieCount = parseInt(cookieCount);
-  autoClick = localStorage.getItem('autoclick');
-  autoClick = parseInt(autoClick);
-  factories = localStorage.getItem('factory');
-  factories = parseInt(factories);
-  multiplier = localStorage.getItem('multiplier');
-  multiplier = parseInt(multiplier);
-  prestige = localStorage.getItem('prestiges');
-  prestige = parseInt(prestige);
   update();
 }
 function buyAutoClick() {
@@ -89,6 +85,7 @@ function dataWipe() {
   localStorage.setItem('factory', 0);
   localStorage.setItem('multiplier', 0);
   localStorage.setItem('prestige', 0);
+  localStorage.setItem('prestigeCost', 0);
 }
 function reset() {
   dataWipe();
