@@ -9,28 +9,31 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="styles.css">
 <script src="main.js"></script>
+<link rel="icon" href="../img/loadingScreen.png" sizes="16x16" type="image/png">
   </head>
   <body>
     <p style='color: black;'>Select a gamemode...</p>
     <button type="button" name="button" id='toggleNightMode'>Day/Night Mode</button>
 
     <div id="selection">
-      <a href="../original/cookie-clicker.html" class='btn btn-light' id='toClassic' style='border-style: groove'>Normal</a> |
+      <a href="../original/cookie-clicker.html" class='btn btn-light' id='toClassic' style='border-style: outset'>Normal</a>
+      <span>|</span>
       <a href="../hacked/cookie-clicker.html" class="btn btn-dark" id='toCreative'>Creative</a>
       <br>
-      <ul id='creative'>
-        <h4>The Revamped Cookie Clicker Experience</h4>
-        <li>10000000 Cookies at start</li>
-        <li>No Saving/Loading</li>
-        <li>0 Cookies to Prestige</li>
-      </ul>
       <ul id='standard'>
-        <h4>The Classic Cookie Clicker Experience</h4>
+        <h4>The Original Cookie Clicker Experience</h4>
         <li>0 Cookies at start</li>
         <li>Saving/Loading</li>
+        <li>Badges</li>
         <li>1000000 Cookies to Prestige</li>
       </ul>
-      <br>
+      <ul id='creative'>
+        <h4>The Cheated Cookie Clicker Experience</h4>
+        <li>Infinite Cookies at start</li>
+        <li>No Saving/Loading</li>
+        <li>No badges</li>
+        <li>No Prestige</li>
+      </ul>
     </div>
   </body>
 </html>

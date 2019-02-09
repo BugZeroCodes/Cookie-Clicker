@@ -1,6 +1,5 @@
 function update() {
   document.getElementById('text').value = cookieCount;
-  document.title = cookieCount + " Cookies";
 
   document.getElementById('MultiplierCost').innerHTML = ((multiplier+1) * 100) + " Cookies";
   document.getElementById('MultiplierAmount').innerHTML = "Your multiplier is currently x" + (multiplier+1);
@@ -25,37 +24,11 @@ function update() {
   if (prestige >= 5) {
     changeCookie('../img/finalcookie.png');
   }
-  // Milestone Rewards
-  if (autoClick === 100) {
-    cookieCount += 1000;
-  }
-  if (factories === 100) {
-    cookieCount += 10000;
-  }
-  if (multiplier === 1500) {
-    cookieCount += 1000000;
-  }
-  if (prestige === 10) {
-    multiplier *= 2000;
-  }
 }
 function changeCookie(imageURL) {
   $('#cookie img').attr('src', imageURL);
 }
-$('#toggleNightMode').click(function() {
-  if (nightMode) {
-    nightMode = false;
-    $('body').css('background-color', 'white');
-    $('p, #standard, #creative').css('color', 'black');
-    $('#toggleNightMode').text('Day Mode');
-  } else {
-    nightMode = true;
-    $('body').css('background-color', 'black');
-    $('p, #standard, #creative').css('color', 'white');
-    $('#toggleNightMode').text('Night Mode');
-  }
-});
-var multiplier = 1;
+var multiplier = Infinity;
 var cookieCount = 10000000;
 var autoClick = 1000000000000;
 var factories = 1000000000000;
@@ -99,27 +72,4 @@ function dataWipe() {
   localStorage.setItem('multiplier', 0);
   localStorage.setItem('prestige', 0);
   localStorage.setItem('prestigeCost', 0);
-}
-function reset() {
-  dataWipe();
-  cookieCount = 0;
-  autoClick = 0;
-  factories = 0;
-  multiplier = 0;
-  prestige = 0;
-  save();
-  document.getElementById('text').value = cookieCount;
-}
-function rebirth() {
-  if (cookieCount >= prestCost) {
-    prestige += 1;
-    cookieCount = 0;
-    autoClick = 0;
-    factories = 0;
-    multiplier *= 2;
-    prestCost *= 2;
-    dataWipe();
-    save();
-    update();
-  }
 }

@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>0 Cookies</title>
+    <title>Classic Mode - Cookie Clicker</title>
     <script src="main.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<link rel="icon" href="../img/favicon.jpeg" sizes="18x18" type="image/png">
   </head>
   <body>
-    <button type="button" name="button" id='toggleNightMode'>Day/Night Mode</button>
+    <h1>Playing <a href='#' onclick="window.history.back();">Classic</a> Mode</h1>
     <p id='cookiesPerSecond'></p>
     <p id='prestiges'></p>
     <p id='maximumItems'></p>
     <a href="#" onclick="add()" id='cookie'><img src='../img/startingcookie.jpeg' /></a>
     <br />
-    You have:
+    You have
     <input type="text" id="text" disabled style='text-align: center;' />
     Cookies.
     <br />
@@ -37,9 +38,9 @@
     <p id='MultiplierCost'>200 Cookies</p>
     <p id="MultiplierAmount">Your Multiplier is currently x1</p>
     <button type='button' class='btn btn-danger' data-toggle="modal" data-target='#warningModal'>Reset</button>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#prestigeModal">Prestige</button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#prestigeModal" id='prestButton'>Prestige</button>
     <br>
-    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#milestoneList">Milestones</button>
+    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#milestoneList">Badges</button>
     <br>
     <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#settingsList"><img src='../img/gear.png' width='60' height='70' /></button>
     <div class="modal fade" tabindex="-1" role="dialog" id='prestigeModal'>
@@ -87,24 +88,30 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">All milestones</h5>
+            <h5 class="modal-title">Badges to earn</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            <h3>Basic Milestones</h3>
+            <h3>Basic Badges</h3>
             <ul>
-              <li>100 Auto Clickers: +1000 Cookies</li>
-              <li>100 Factories: +10000 Cookies</li>
+              <li>Starting Point: 1 Autoclicker</li>
+              <li>The beginning of it all: 1 Factory</li>
+              <li>Jitter Finger: 100 Auto Clickers = +1000 Autoclickers</li>
+              <li>Industrial Age: 100 Factories = +10000 Factories</li>
+              <li><span style='font-size: 9px;'>Teeny-Tiny</span> Cookies: 1000 CPS = +100 Cookies</li>
             </ul>
-            <h3 style='color: red;'>Hard Milestones</h3>
+            <h3 style='color: red;'>Hard Badges</h3>
             <ul>
-              <li>Multiplier x1500 = +1000000 Cookies</li>
+              <li>Cookie Rain: 10000 CPS = +100000 Cookies</li>
+              <li>Everlasting Cookies: 100000 CPS = +100 Factories</li>
+              <li>Big Cookies: Multiplier x1500 = +1000000 Cookies</li>
             </ul>
-            <h3 style='color: #FFD700;'>Legendary Milestones</h3>
+            <h3 style='color: #FFD700;'>Legendary Badges</h3>
             <ul>
-              <li>10 Prestiges = Multiplier + 2000</li>
+              <li>Company Infinite: 1000000 Factories = 10 Free Prestiges</li>
+              <li>What is life?: 1000000000000000000000000000000000000000 Cookies</li>
             </ul>
           </div>
         </div>

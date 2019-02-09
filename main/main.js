@@ -15,14 +15,14 @@ $(document).ready(function() {
   });
   $('#toggleNightMode').click(function() {
     if (nightMode) {
-      nightMode = false;
+      nightMode = false; // Day mode
       $('body').css('background-color', 'white');
-      $('p, #standard, #creative').css('color', 'black');
+      $('p, #standard, #creative, span').css('color', 'black');
       $('#toggleNightMode').text('Day Mode');
     } else {
-      nightMode = true;
+      nightMode = true; // Night mode
       $('body').css('background-color', 'black');
-      $('p, #standard, #creative').css('color', 'white');
+      $('p, #standard, #creative, span').css('color', 'white');
       $('#toggleNightMode').text('Night Mode');
     }
   });
