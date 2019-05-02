@@ -10,8 +10,8 @@ function update() {
   document.getElementById('FactoryAmount').innerHTML = "You Own " + factories + " Factories";
   document.getElementById('FactoryCost').innerHTML = ((factories+1) * 15) + " Cookies";
 
-  document.getElementById('cookiesPerSecond').innerHTML = "You are gaining " + (((autoClick) + (factories * 2)) * multiplier * prestMultiplier) + " cookies per/s.";
-  document.getElementById('prestiges').innerHTML = "You have prestiged " + prestige + " times.";
+  document.getElementById('cookiesPerSecond').innerHTML = "You are gaining " + (((autoClick) + (factories * 2)) * multiplier) + " cookies per/s.";
+  document.getElementById('prestiges').innerHTML = prestige + " Prestiges";
   document.getElementById('costToPrestige').textContent = prestCost + " Cookies";
   if (cookieCount < prestCost) {
     $('#prestige-button').hide();
@@ -22,10 +22,31 @@ function update() {
   if (prestige >= 1) {
     changeCookie('../img/cookie.jpeg')
   }
-  if (prestige >= 5) {
+  if (prestige >= 3) {
+    changeCookie('../img/cookie2.png');
+  }
+  if (prestige >= 7) {
+    changeCookie('../img/cookie3.png');
+  }
+  if (prestige >= 11) {
     changeCookie('../img/finalcookie.png');
   }
-  // Milestone Rewards
+  // Check for earned badges
+  checkBadges();
+  // Stat modal
+  $('#cookieClicks').html(clicks);
+  // Other stuff
+  $('#currentAutoclickers').html(autoClick + '/');
+  $('#currentFactories').html(factories + '/');
+  $('#cookiesLeft').html(cookieCount + '/');
+  if (autoClick >= 100) {
+    $('#currentAutoclickers').remove()
+  }
+  if (factories >= 100) {
+    $('#currentFactories').remove();
+  }
+}
+function checkBadges() {
   if (autoClick === 100) {
     alert('Achievement Unlocked: Jitter Finger');
     alert('You have a FAST finger.')
@@ -36,13 +57,17 @@ function update() {
     alert('Make us cookie bakers proud!')
     factories += 10000;
   }
-  if ((((autoClick) + (factories * 2)) * multiplier) === 1000) {
+  if (cps === 1000) {
     alert('Achievement Unlocked: Teeny-Tiny Cookies');
     cookieCount += 100;
   }
-  if ((((autoClick) + (factories * 2)) * multiplier) === 100000) {
+  if (cps === 100000) {
     alert('Achievement Unlocked: Everlasting Cookies');
     factories += 100;
+  }
+  if (cps === 10000) {
+    alert('Achievement Unlocked: Cookie Rain');
+    cookieCount += 100000
   }
   if (cookieCount === 1000000000000000000000000000000000000000) {
     alert('Achievement Unlocked: What is life?');
@@ -53,6 +78,10 @@ function update() {
   if (multiplier === 1500) {
     alert('Achievement Unlocked: Big Cookies');
     cookieCount += 1000000;
+  }
+  if (factories === 1000000) {
+    alert('Achievement Unlocked: Company Infinite');
+    prestige += 10;
   }
 }
 function changeCookie(imageURL) {
@@ -65,6 +94,9 @@ var factories = 0;
 var prestige = 0;
 var prestCost = 1000000;
 var prestMultiplier = 1;
+var timesSaved = 0;
+var clicks = 0;
+var cps = (((autoClick) + (factories * 2)) * multiplier)
 function timer() {
   cookieCount += autoClick * multiplier * prestMultiplier;
   cookieCount += factories * 5 * multiplier * prestMultiplier;
@@ -73,6 +105,7 @@ function timer() {
 setInterval(timer, 1000);
 function add() {
   cookieCount += 1;
+  clicks += 1;
   update();
 }
 function save() {
@@ -84,6 +117,7 @@ function save() {
   localStorage.setItem('prestigeCost', prestCost);
   localStorage.setItem('prestMultiplier', prestMultiplier);
   alert('Saved!')
+  timesSaved += 1
 }
 function load() {
   cookieCount = localStorage.getItem('cookiecount');
@@ -95,11 +129,13 @@ function load() {
   multiplier = localStorage.getItem('multiplier');
   multiplier = parseInt(multiplier);
   prestige = localStorage.getItem('prestiges');
-  prestige = parseInt(prestige);
+  prestige = parseInt(prestige) ;
   prestCost = localStorage.getItem('prestigeCost');
   prestCost = parseInt(prestCost);
   prestMultiplier = localStorage.getItem('prestMultiplier');
   prestMultiplier = parseInt(prestMultiplier);
+  clicks = localStorage.getItem('CookieClicks');
+  clicks = parseInt(clicks);
   update();
 }
 function buyAutoClick() {
@@ -107,6 +143,8 @@ function buyAutoClick() {
     cookieCount -= ((autoClick+1) * 12);
     autoClick += 1;
     update();
+  } else {
+    alert("You don't have enough cookies for that!")
   }
 }
 function buyFactory() {
@@ -114,6 +152,8 @@ function buyFactory() {
     cookieCount -= ((factories+1) * 12);
     factories += 1;
     update();
+  } else {
+    alert("You don't have enough cookies for that!")
   }
 }
 function upgradeMultiplier() {
@@ -121,6 +161,8 @@ function upgradeMultiplier() {
     cookieCount -= ((multiplier+1) * 100);
     multiplier += 1;
     update();
+  } else {
+    alert("You don't have enough cookies for that!")
   }
 }
 function dataWipe() {
@@ -137,7 +179,7 @@ function reset() {
   cookieCount = 0;
   autoClick = 0;
   factories = 0;
-  multiplier = 0;
+  multiplier = 1;
   prestige = 0;
   save();
   document.getElementById('text').value = cookieCount;

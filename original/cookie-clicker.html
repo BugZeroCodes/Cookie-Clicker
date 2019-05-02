@@ -10,7 +10,7 @@
 <link rel="icon" href="../img/favicon.jpeg" sizes="18x18" type="image/png">
   </head>
   <body>
-    <h1>Playing <a href='#' onclick="window.history.back();">Classic</a> Mode</h1>
+    <h1>Playing <a href='../../Cookie clicker/main/select.html'>Campaign</a> Mode</h1>
     <p id='cookiesPerSecond'></p>
     <p id='prestiges'></p>
     <p id='maximumItems'></p>
@@ -27,7 +27,6 @@
     <button><a href='#' onclick="buyAutoClick();"><img src='../img/clicker.png' width='40px' height='50px' /></a></button>
     <p id='AutoClickCost'> Cookies</p>
     <p id="AutoClickAmount">You Own 0 Auto Clickers</p>
-    <br />
     <p>Buy 1 Factory</p>
     <button><a href='#' onclick="buyFactory();"><img src='../img/factory.png' width='60px' height='70px' /></a></button>
     <p id='FactoryCost'>15 Cookies</p>
@@ -41,8 +40,7 @@
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#prestigeModal" id='prestButton'>Prestige</button>
     <br>
     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#milestoneList">Badges</button>
-    <br>
-    <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#settingsList"><img src='../img/gear.png' width='60' height='70' /></button>
+    <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#status">Stats</button>
     <div class="modal fade" tabindex="-1" role="dialog" id='prestigeModal'>
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -55,7 +53,7 @@
           <div class="modal-body">
             <p>If you prestige, you will lose all your progress, but all cookies gained come faster.</p>
             <br>
-            <p>Prestige cost: <span id='costToPrestige'></span></p>
+            <p id='central-point'>Prestige cost: <span id='cookiesLeft'>/</span><span id='costToPrestige'></span></p>
           </div>
           <div class="modal-footer">
             <button type="button" class='btn btn-danger' onclick="rebirth();" data-dismiss="modal" id='prestige-button'>Prestige</button>
@@ -98,8 +96,8 @@
             <ul>
               <li>Starting Point: 1 Autoclicker</li>
               <li>The beginning of it all: 1 Factory</li>
-              <li>Jitter Finger: 100 Auto Clickers = +1000 Autoclickers</li>
-              <li>Industrial Age: 100 Factories = +10000 Factories</li>
+              <li>Jitter Finger: <span id='currentAutoclickers'>/</span>100 Autoclickers = +1000 Autoclickers</li>
+              <li>Industrial Age: <span id='currentFactories'>/</span>100 Factories = +10000 Factories</li>
               <li><span style='font-size: 9px;'>Teeny-Tiny</span> Cookies: 1000 CPS = +100 Cookies</li>
             </ul>
             <h3 style='color: red;'>Hard Badges</h3>
@@ -117,17 +115,17 @@
         </div>
       </div>
     </div>
-    <div class="modal fade" tabindex="-1" role="dialog" id='settingsList'>
+    <div class="modal fade" tabindex="-1" role="dialog" id='status'>
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">Settings</h5>
+            <h5 class="modal-title">Stats(WIP)</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            Work in Progress
+            Cookie Clicks: <span id='cookieClicks'></span>
           </div>
         </div>
       </div>

@@ -21,18 +21,21 @@ function update() {
   if (prestige >= 1) {
     changeCookie('../img/cookie.jpeg')
   }
-  if (prestige >= 5) {
+  if (prestige >= 3) {
+    changeCookie('../img/cookie2.png');
+  }
+  if (prestige >= 7) {
     changeCookie('../img/finalcookie.png');
   }
 }
 function changeCookie(imageURL) {
   $('#cookie img').attr('src', imageURL);
 }
-var multiplier = Infinity;
-var cookieCount = 10000000;
-var autoClick = 1000000000000;
-var factories = 1000000000000;
-var prestige = 1000000000000;
+var multiplier = 1000000000000000000000000000000000000000;
+var cookieCount = Infinity;
+var autoClick = 0;
+var factories = 0;
+var prestige = Infinity;
 var prestCost = 0;
 function timer() {
   cookieCount += autoClick * multiplier;
