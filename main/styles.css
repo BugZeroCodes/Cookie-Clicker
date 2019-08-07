@@ -10,3 +10,8 @@ body {
 ul {
   list-style-type: none;
 }
+#UpdateLog {
+  color: white;
+  text-decoration: none;
+  border: outset blue;
+}
