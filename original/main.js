@@ -35,6 +35,13 @@ function update() {
   checkBadges();
   // Stat modal
   $('#cookieClicks').html(clicks);
+  var message = ' cookies per click';
+  if (clickPowerMultiplier === 1) {
+    message = ' cookie per click';
+  } else {
+    message = ' cookies per click';
+  }
+  $('#clickPower').html(clickPowerMultiplier + message);
   // Other stuff
   $('#currentAutoclickers').html(autoClick + '/');
   $('#currentFactories').html(factories + '/');
@@ -73,7 +80,7 @@ function checkBadges() {
     alert('Achievement Unlocked: What is life?');
     alert('Do you have a life?');
     alert('Do you know WHAT YOU HAVE DONE?!?')
-    cookieCount *= 1000000000;
+    cookieCount *= Infinity;
   }
   if (multiplier === 1500) {
     alert('Achievement Unlocked: Big Cookies');
@@ -97,6 +104,7 @@ var prestMultiplier = 1;
 var timesSaved = 0;
 var clicks = 0;
 var cps = (((autoClick) + (factories * 2)) * multiplier)
+var clickPowerMultiplier = 1;
 function timer() {
   cookieCount += autoClick * multiplier * prestMultiplier;
   cookieCount += factories * 5 * multiplier * prestMultiplier;
@@ -104,7 +112,7 @@ function timer() {
 }
 setInterval(timer, 1000);
 function add() {
-  cookieCount += 1;
+  cookieCount += 1 * clickPowerMultiplier;
   clicks += 1;
   update();
 }
@@ -116,8 +124,8 @@ function save() {
   localStorage.setItem('prestiges', prestige);
   localStorage.setItem('prestigeCost', prestCost);
   localStorage.setItem('prestMultiplier', prestMultiplier);
+  localStorage.setItem('clickPower', clickPowerMultiplier);
   alert('Saved!')
-  timesSaved += 1
 }
 function load() {
   cookieCount = localStorage.getItem('cookiecount');
@@ -136,6 +144,8 @@ function load() {
   prestMultiplier = parseInt(prestMultiplier);
   clicks = localStorage.getItem('CookieClicks');
   clicks = parseInt(clicks);
+  clickPowerMultiplier = localStorage.getItem('clickPower');
+  clickPowerMultiplier = parseInt(clickPowerMultiplier);
   update();
 }
 function buyAutoClick() {
@@ -173,6 +183,7 @@ function dataWipe() {
   localStorage.setItem('prestige', 0);
   localStorage.setItem('prestigeCost', 0);
   localStorage.setItem('prestMultiplier', 0);
+  localStorage.setItem('clickPower', 1);
 }
 function reset() {
   dataWipe();
@@ -193,6 +204,7 @@ function rebirth() {
     multiplier *= 2;
     prestCost *= 2;
     prestMultiplier *= 2;
+    clickPowerMultiplier *= 2;
     dataWipe();
     alert('Restarted!');
     update();
