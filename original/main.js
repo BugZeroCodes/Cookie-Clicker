@@ -42,6 +42,7 @@ function update() {
     message = ' cookies per click';
   }
   $('#clickPower').html(clickPowerMultiplier + message);
+  $('#nextMultiplier').html(clickPowerMultiplier * 2);
   // Other stuff
   $('#currentAutoclickers').html(autoClick + '/');
   $('#currentFactories').html(factories + '/');
