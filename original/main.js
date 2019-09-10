@@ -180,11 +180,12 @@ function dataWipe() {
   localStorage.setItem('cookiecount', 0);
   localStorage.setItem('autoclick', 0);
   localStorage.setItem('factory', 0);
-  localStorage.setItem('multiplier', 0);
+  localStorage.setItem('multiplier', 1);
   localStorage.setItem('prestige', 0);
-  localStorage.setItem('prestigeCost', 0);
-  localStorage.setItem('prestMultiplier', 0);
+  localStorage.setItem('prestigeCost', 1000000);
+  localStorage.setItem('prestMultiplier', 1);
   localStorage.setItem('clickPower', 1);
+  save();
 }
 function reset() {
   dataWipe();
@@ -193,7 +194,6 @@ function reset() {
   factories = 0;
   multiplier = 1;
   prestige = 0;
-  save();
   document.getElementById('text').value = cookieCount;
 }
 function rebirth() {
