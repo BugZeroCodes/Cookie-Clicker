@@ -102,7 +102,6 @@ var factories = 0;
 var prestige = 0;
 var prestCost = 1000000;
 var prestMultiplier = 1;
-var timesSaved = 0;
 var clicks = 0;
 var cps = (((autoClick) + (factories * 2)) * multiplier)
 var clickPowerMultiplier = 1;

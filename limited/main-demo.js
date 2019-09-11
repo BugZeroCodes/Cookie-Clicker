@@ -13,20 +13,16 @@ function update() {
   $('#cookiesPerSecond').html((autoClick * multiplier) + (factories * 5 * multiplier) + ' hits per second')
   $('#cookies').html(cookieCount);
   if (bossHealth <= 0) {
-    alert("Hurray! You've beat the boss!");
-    var playAgain = confirm("Would you like to play again?(You will be asked twice.)");
-    if (playAgain) {
-      document.location.reload();
-    } else {
-      location.replace('../../Cookie clicker/main/select.html')
-    }
+    location.replace('../../Cookie clicker/main/select.html');
+    alert("This is, unfortunately, the end of this demo.");
+    alert("If you want to see more, wait for 2020 to come around!");
   }
 }
 var cookieCount = 0;
 var autoClick = 1;
 var factories = 1;
 var multiplier = 1;
-var bossHealth = 1000;
+var bossHealth = 100;
 function timer() {
   bossHealth -= autoClick * multiplier;
   bossHealth -= factories * 5 * multiplier;
