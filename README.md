@@ -1,2 +1,3 @@
-# Cookie-Clicker Game
 # Cookie-Clicker
+The ORIGINAL cookie clicker, made by none other than...
+# Timothy Amadi, Founder of Bugzero.codes!

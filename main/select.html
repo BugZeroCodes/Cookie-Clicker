@@ -14,20 +14,36 @@
 <body>
   <div id="selection" style='text-align: left;'>
     <a href="../original/cookie-clicker.html" class='btn btn-light' id='toClassic' style='border: outset white'>Campaign</a> |
-    <p style='color: white; font-size: 24px; display: inline;'>A new LTM every ten updates!</p> |
+    <p style='color: white; font-size: 14px; display: inline;'>Next LTM will be added in 2020!</p> |
     <a href="https://github.com/BugZeroCodes/Cookie-Clicker/commits/master" class="btn btn-warning" target="_blank" id='UpdateLog'>Update Log</a> |
-    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-      <strong>Creative has been removed from the game.</strong> We apologize and regretfully force the playing of Campaign Mode and LTMs(limited-time modes).
-      <hr>
-      Thank you for playing Creative for testing. We could not have done it without you.
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
+    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#LTMsDone">About LTMs</button>
     <div class="alert alert-info show" role="alert">
-      “When one door of happiness closes, another opens; but often we look so long at the closed door that we do not see the one which has been opened for us.” -Helen Keller
+      “Twenty years from now you will be more disappointed by the things that you didn’t do than by the ones you did do.” - Mark Twain/Samuel Clemens
       <hr>
       This quote is changed every Update Day.
+    </div>
+  </div>
+  <div class="modal fade" tabindex="-1" role="dialog" id='LTMsDone'>
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">LTMs</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>LTMs were introduced to the game in 2019. The following is a list of all LTMs in the game's history(And how long they were added):</p>
+          <ol>
+            <li>The Unpredictable(July-August 2019)</li>
+            <li>Locked Settings(August 2019)</li>
+            <li>[REDACTED] (2020 - Upcoming!)</li>
+          </ol>
+        </div>
+        <div class="modal-footer">
+          <button type="button" data-dismiss="modal" class='btn btn-primary'>Cancel</button>
+        </div>
+      </div>
     </div>
   </div>
 </body>
