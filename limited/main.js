@@ -10,9 +10,17 @@ function update() {
   document.getElementById('AutoClickAmount').innerHTML = "You Own " + autoClick + " Auto Clickers";
 
   document.getElementById('FactoryAmount').innerHTML = "You Own " + factories + " Factories";
-  $('#cookiesPerSecond').html((autoClick * multiplier) + (factories * 5 * multiplier) + ' hits per second')
+
+  document.getElementById('MinerAmount').innerHTML = "You Own " + miners + " Miners";
+  document.getElementById('MinerCost').innerHTML = ((miners+1) * 15) + " Coins";
+
+  document.getElementById('MultiplierAmount').innerHTML = "Attack Multiplier is at: " + attackMultiplier + "x";
+  document.getElementById('MultiplierCost').innerHTML = ((attackMultiplier+1) * 100) + " Coins";
+
+  $('#cookiesPerSecond').html((autoClick * multiplier) + (factories * 5 * attackMultiplier) + ' hits per second')
   $('#cookies').html(cookieCount);
   if (bossHealth <= 0) {
+    document.location.reload();
     alert("Hurray! You've beat the boss!");
     var playAgain = confirm("Would you like to play again?(You will be asked twice.)");
     if (playAgain) {
@@ -25,22 +33,30 @@ function update() {
 var cookieCount = 0;
 var autoClick = 1;
 var factories = 1;
-var multiplier = 1;
-var bossHealth = 1000;
+var multiplier = 1; // We'll call this minerMultiplier later.
+var bossHealth = 100006;
+var miners = 0;
+var attackMultiplier = 1; // If we set this to 0, the existing attackers can't do anything.
 function timer() {
-  bossHealth -= autoClick * multiplier;
-  bossHealth -= factories * 5 * multiplier;
+  bossHealth -= autoClick * attackMultiplier;
+  bossHealth -= factories * 5 * attackMultiplier;
+  cookieCount += autoClick + factories * attackMultiplier;
   update();
 }
-setInterval(timer, 500);
-setInterval(add, 0);
+setInterval(timer, 1000);
+setInterval(add, 1000);
 function damage() {
   bossHealth -= 1;
   update();
 }
 function add() {
-  cookieCount += 1;
-}
+  if (miners !== 0) {
+    cookieCount += 1 * miners * 2;
+  } else {
+    cookieCount += 1;
+  }
+  update();
+};
 function buyAutoClick() {
   if (cookieCount >= ((autoClick + 1) * 12)) {
     cookieCount -= ((autoClick+1) * 12);
@@ -48,10 +64,24 @@ function buyAutoClick() {
     update();
   }
 }
+function buyMiner() {
+  if (cookieCount >= ((miners + 1) * 12)) {
+    cookieCount -= ((miners+1) * 12);
+    miners += 1;
+    update();
+  }
+}
 function buyFactory() {
   if (cookieCount >= ((factories + 1) * 12)) {
     cookieCount -= ((factories+1) * 12);
     factories += 1;
+    update();
+  }
+}
+function buyAttackMultiplier() {
+  if (cookieCount >= ((attackMultiplier + 1) * 40)) {
+    cookieCount -= ((attackMultiplier+1) * 40);
+    attackMultiplier += 1;
     update();
   }
 }

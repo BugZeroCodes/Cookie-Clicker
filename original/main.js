@@ -10,7 +10,7 @@ function update() {
   document.getElementById('FactoryAmount').innerHTML = "You Own " + factories + " Factories";
   document.getElementById('FactoryCost').innerHTML = ((factories+1) * 15) + " Cookies";
 
-  document.getElementById('cookiesPerSecond').innerHTML = "You are gaining " + (((autoClick) + (factories * 2)) * multiplier) + " cookies per/s.";
+  document.getElementById('cookiesPerSecond').innerHTML = "You are gaining " + (((autoClick) + (factories * 2)) * multiplier * prestMultiplier) + " cookies per/s.";
   document.getElementById('prestiges').innerHTML = prestige + " Prestiges";
   document.getElementById('costToPrestige').textContent = prestCost + " Cookies";
   if (cookieCount < prestCost) {
@@ -103,7 +103,7 @@ var prestige = 0;
 var prestCost = 1000000;
 var prestMultiplier = 1;
 var clicks = 0;
-var cps = (((autoClick) + (factories * 2)) * multiplier)
+var cps = (((autoClick) + (factories * 2)) * multiplier * prestMultiplier);
 var clickPowerMultiplier = 1;
 function timer() {
   cookieCount += autoClick * multiplier * prestMultiplier;
