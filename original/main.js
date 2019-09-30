@@ -91,6 +91,9 @@ function checkBadges() {
     alert('Achievement Unlocked: Company Infinite');
     prestige += 10;
   }
+  if (prestige === 100000) {
+    alert('Achievement Unlocked: Makin\' my way downtown')
+  }
 }
 function changeCookie(imageURL) {
   $('#cookie img').attr('src', imageURL);
@@ -184,7 +187,6 @@ function dataWipe() {
   localStorage.setItem('prestigeCost', 1000000);
   localStorage.setItem('prestMultiplier', 1);
   localStorage.setItem('clickPower', 1);
-  save();
 }
 function reset() {
   dataWipe();
@@ -193,10 +195,16 @@ function reset() {
   factories = 0;
   multiplier = 1;
   prestige = 0;
+  prestCost = 1000000;
+  prestMultiplier = 1;
+  clickPowerMultiplier = 1;
   document.getElementById('text').value = cookieCount;
 }
 function rebirth() {
   if (cookieCount >= prestCost) {
+    dataWipe();
+    alert('Restarted!');
+    update();
     prestige += 1;
     cookieCount = 0;
     autoClick = 0;
@@ -205,8 +213,5 @@ function rebirth() {
     prestCost *= 2;
     prestMultiplier *= 2;
     clickPowerMultiplier *= 2;
-    dataWipe();
-    alert('Restarted!');
-    update();
   }
 }
