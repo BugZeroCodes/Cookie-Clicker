@@ -15,14 +15,14 @@ function update() {
   if (bossHealth <= 0) {
     location.replace('../../Cookie clicker/main/select.html');
     alert("This is, unfortunately, the end of this demo.");
-    alert("If you want to see more, wait for 2020 to come around!");
+    alert("If you want to see more, wait for 2020 to roll around!");
   }
 }
 var cookieCount = 0;
 var autoClick = 1;
 var factories = 1;
 var multiplier = 1;
-var bossHealth = 100;
+var bossHealth = 106;
 function timer() {
   bossHealth -= autoClick * multiplier;
   bossHealth -= factories * 5 * multiplier;
