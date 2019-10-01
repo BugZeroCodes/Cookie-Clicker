@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Limited Mode - Cookie Clicker</title>
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<link rel="icon" href="../img/favicon.jpeg" sizes="18x18" type="image/png">
+  </head>
+  <body>
+    <h1>Playing <a href='../../../main/select.html'>Limited Edition</a> Mode on <a href="../selection.html">Hard</a></h1>
+    <p id='cookiesPerSecond'></p>
+    <a href="#" onclick="damage()" id='cookie'><img src='../../../../Cookie clicker/img/cookieboss.png' /></a>
+    <br />
+    <a href="#" onclick="add()">Get coin</a>
+    <p>You have <span id='cookies'></span> coins to spend.</p>
+    <input type="text" id="text" disabled style='text-align: center;' />
+    Health Remaining.
+    <br>
+    <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#shop">Shop</button>
+    <div class="modal fade" tabindex="-1" role="dialog" id='shop'>
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Shop</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <h3>War Efforts</h3>
+            <p>Buy 1 Auto Clicker</p>
+            <button><a href='#' onclick="buyAutoClick();"><img src='../../../../Cookie clicker/img/clicker.png' width='40px' height='50px' /></a></button>
+            <p id='AutoClickCost'> Coins</p>
+            <p id="AutoClickAmount">You Own 0 Auto Clickers</p>
+            <p>Buy 1 Factory</p>
+            <button><a href='#' onclick="buyFactory();"><img src='../../../../Cookie clicker/img/factory.png' width='60px' height='70px' /></a></button>
+            <p id='FactoryCost'>15 Coins</p>
+            <p id="FactoryAmount">You Own 0 Factories</p>
+            <h3>Production</h3>
+            <button><a href='#' onclick="buyMiner();"><img src='../../../../Cookie clicker/img/Pickaxe.gif' width='60px' height='70px' /></a></button>
+            <p id='MinerCost'>15 Coins</p>
+            <p id="MinerAmount">You Own 0 Miners</p>
+            <button><a href='#' onclick="buyAttackMultiplier();">2x</a></button>
+            <p id='MultiplierCost'>100 Coins</p>
+            <p id="MultiplierAmount">Attack Multiplier is at: 1x</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </body>
+</html>
