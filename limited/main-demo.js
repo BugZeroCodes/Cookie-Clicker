@@ -22,7 +22,7 @@ var cookieCount = 0;
 var autoClick = 1;
 var factories = 1;
 var multiplier = 1;
-var bossHealth = 106;
+var bossHealth = 10006;
 function timer() {
   bossHealth -= autoClick * multiplier;
   bossHealth -= factories * 5 * multiplier;

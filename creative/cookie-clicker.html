@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Creative Mode - Cookie Clicker</title>
+  <script src="main.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <link rel="icon" href="../img/favicon.jpeg" sizes="18x18" type="image/png">
+</head>
+<body>
+  <h1>Playing <a href='../../Cookie clicker/main/select.html'>Creative</a> Mode</h1>
+  <p id='cookiesPerSecond'></p>
+  <p id='prestiges'></p>
+  <a href="#" onclick="add()" id='cookie'><img src='../img/startingcookie.jpeg' /></a>
+  <br />
+  You have
+  <input type="text" id="text" disabled style='text-align: center;' />
+  Cookies.
+  <br />
+  <button class='btn btn-success'><a href='#' onclick="save()">Save</a></button>
+  <button class='btn btn-warning'><a href='#' onclick="load()">Load</a></button>
+  <div id="buttons">
+    <button type='button' class='btn btn-danger' data-toggle="modal" data-target='#warningModal'>Reset</button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#prestigeModal" id='prestButton'>Prestige</button>
+    <br>
+    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#milestoneList">Badges</button>
+    <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#status">Stats</button>
+    <br>
+    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#shop">Shop</button>
+  </div>
+  <div class="modal fade" tabindex="-1" role="dialog" id='prestigeModal'>
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">ARE YOU SURE YOU WANT TO PRESTIGE?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>If you prestige, you will lose all your progress, but all cookies gained come faster.</p>
+          <br>
+          <p>Next Click Power Multiplier(CPM): <span id='nextMultiplier'></span></p>
+          <p id='central-point'>Prestige cost: <span id='cookiesLeft'>/</span><span id='costToPrestige'></span></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class='btn btn-danger' onclick="rebirth();" data-dismiss="modal" id='prestige-button'>Prestige</button>
+          <button type="button" data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal" tabindex="-1" role="dialog" id='warningModal'>
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">ARE YOU SURE YOU WANT TO RESET THE GAME?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>This will not upgrade your multiplier.</p>
+          <br>
+          <button class='btn btn-danger'><a href='#' onclick="reset();" data-dismiss="modal">Reset</a></button>
+        </div>
+        <div class="modal-footer">
+          <button type="button" data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" tabindex="-1" role="dialog" id='shop'>
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Shop</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Buy 1 Auto Clicker</p>
+          <a href='#' onclick="buyAutoClick();"><img src='../img/clicker.png' width='100px' height='100px' /></a>
+          <p id='AutoClickCost'> Cookies</p>
+          <p id="AutoClickAmount">You Own 0 Auto Clickers</p>
+          <p>Buy 1 Factory</p>
+          <a href='#' onclick="buyFactory();"><img src='../img/factory.png' width='60px' height='70px' /></a>
+          <p id='FactoryCost'>15 Cookies</p>
+          <p id="FactoryAmount">You Own 0 Factories</p>
+          <br />
+          <p>Multiplier x2 Upgrade</p>
+          <button><a href='#' onclick="upgradeMultiplier();"><span id='amountMultiplier2'>x2</span></a></button>
+          <p id='MultiplierCost'>200 Cookies</p>
+          <p id="MultiplierAmount">Your Multiplier is currently x1</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
