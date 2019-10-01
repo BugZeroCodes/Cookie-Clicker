@@ -31,76 +31,12 @@ function update() {
   if (prestige >= 11) {
     changeCookie('../img/finalcookie.png');
   }
-  // Check for earned badges
-  checkBadges();
-  // Stat modal
-  $('#cookieClicks').html(clicks);
-  var message = ' cookies per click';
-  if (clickPowerMultiplier === 1) {
-    message = ' cookie per click';
-  } else {
-    message = ' cookies per click';
-  }
-  $('#clickPower').html(clickPowerMultiplier + message);
-  $('#nextMultiplier').html(clickPowerMultiplier * 2);
-  // Other stuff
-  $('#currentAutoclickers').html(autoClick + '/');
-  $('#currentFactories').html(factories + '/');
-  $('#cookiesLeft').html(cookieCount + '/');
-  if (autoClick >= 100) {
-    $('#currentAutoclickers').remove()
-  }
-  if (factories >= 100) {
-    $('#currentFactories').remove();
-  }
-}
-function checkBadges() {
-  if (autoClick === 100) {
-    alert('Achievement Unlocked: Jitter Finger');
-    alert('You have a FAST finger.')
-    autoClick += 1000;
-  }
-  if (factories === 100) {
-    alert('Achievement Unlocked: Industrial Age');
-    alert('Make us cookie bakers proud!')
-    factories += 10000;
-  }
-  if (cps === 1000) {
-    alert('Achievement Unlocked: Teeny-Tiny Cookies');
-    cookieCount += 100;
-  }
-  if (cps === 100000) {
-    alert('Achievement Unlocked: Everlasting Cookies');
-    factories += 100;
-  }
-  if (cps === 10000) {
-    alert('Achievement Unlocked: Cookie Rain');
-    cookieCount += 100000
-  }
-  if (cookieCount === 1000000000000000000000000000000000000000) {
-    alert('Achievement Unlocked: What is life?');
-    alert('Do you have a life?');
-    alert('Do you know WHAT YOU HAVE DONE?!?')
-    cookieCount *= Infinity;
-  }
-  if (multiplier === 1500) {
-    alert('Achievement Unlocked: Big Cookies');
-    cookieCount += 1000000;
-  }
-  if (factories === 1000000) {
-    alert('Achievement Unlocked: Company Infinite');
-    prestige += 10;
-  }
-  if (prestige === 100000) {
-    alert('Achievement Unlocked: Makin\' my way downtown')
-  }
 }
 function changeCookie(imageURL) {
   $('#cookie img').attr('src', imageURL);
 }
-alert("For development of The Cookie Anomaly LTM, updates on Campaign will be on hold until the LTM is released(2020).")
 var multiplier = 1;
-var cookieCount = 0;
+var cookieCount = Infinity;
 var autoClick = 0;
 var factories = 0;
 var prestige = 0;
@@ -108,7 +44,6 @@ var prestCost = 1000000;
 var prestMultiplier = 1;
 var clicks = 0;
 var cps = (((autoClick) + (factories * 2)) * multiplier * prestMultiplier);
-var clickPowerMultiplier = 1;
 function timer() {
   cookieCount += autoClick * multiplier * prestMultiplier;
   cookieCount += factories * 5 * multiplier * prestMultiplier;
@@ -116,7 +51,7 @@ function timer() {
 }
 setInterval(timer, 1000);
 function add() {
-  cookieCount += 1 * clickPowerMultiplier;
+  cookieCount += 1;
   clicks += 1;
   update();
 }
@@ -128,7 +63,6 @@ function save() {
   localStorage.setItem('prestiges', prestige);
   localStorage.setItem('prestigeCost', prestCost);
   localStorage.setItem('prestMultiplier', prestMultiplier);
-  localStorage.setItem('clickPower', clickPowerMultiplier);
   alert('Saved!')
 }
 function load() {
@@ -148,8 +82,6 @@ function load() {
   prestMultiplier = parseInt(prestMultiplier);
   clicks = localStorage.getItem('CookieClicks');
   clicks = parseInt(clicks);
-  clickPowerMultiplier = localStorage.getItem('clickPower');
-  clickPowerMultiplier = parseInt(clickPowerMultiplier);
   update();
 }
 function buyAutoClick() {
@@ -157,8 +89,6 @@ function buyAutoClick() {
     cookieCount -= ((autoClick+1) * 12);
     autoClick += 1;
     update();
-  } else {
-    alert("You don't have enough cookies for that!")
   }
 }
 function buyFactory() {
@@ -166,8 +96,6 @@ function buyFactory() {
     cookieCount -= ((factories+1) * 12);
     factories += 1;
     update();
-  } else {
-    alert("You don't have enough cookies for that!")
   }
 }
 function upgradeMultiplier() {
@@ -175,8 +103,6 @@ function upgradeMultiplier() {
     cookieCount -= ((multiplier+1) * 100);
     multiplier += 1;
     update();
-  } else {
-    alert("You don't have enough cookies for that!")
   }
 }
 function dataWipe() {
@@ -187,7 +113,6 @@ function dataWipe() {
   localStorage.setItem('prestige', 0);
   localStorage.setItem('prestigeCost', 1000000);
   localStorage.setItem('prestMultiplier', 1);
-  localStorage.setItem('clickPower', 1);
 }
 function reset() {
   dataWipe();
@@ -198,7 +123,6 @@ function reset() {
   prestige = 0;
   prestCost = 1000000;
   prestMultiplier = 1;
-  clickPowerMultiplier = 1;
   document.getElementById('text').value = cookieCount;
 }
 function rebirth() {
@@ -213,6 +137,5 @@ function rebirth() {
     multiplier *= 2;
     prestCost *= 2;
     prestMultiplier *= 2;
-    clickPowerMultiplier *= 2;
   }
 }
