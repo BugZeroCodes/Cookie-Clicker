@@ -7,11 +7,11 @@ body {
   padding: 330px;
   padding-left: 355px;
 }
-ul {
-  list-style-type: none;
-}
 #UpdateLog {
   color: white;
   text-decoration: none;
   border: outset blue;
+}
+.white {
+  color: white;
 }

@@ -42,7 +42,6 @@ var factories = 0;
 var prestige = 0;
 var prestCost = 1000000;
 var prestMultiplier = 1;
-var clicks = 0;
 var cps = (((autoClick) + (factories * 2)) * multiplier * prestMultiplier);
 function timer() {
   cookieCount += autoClick * multiplier * prestMultiplier;
@@ -52,36 +51,6 @@ function timer() {
 setInterval(timer, 1000);
 function add() {
   cookieCount += 1;
-  clicks += 1;
-  update();
-}
-function save() {
-  localStorage.setItem('cookiecount', cookieCount);
-  localStorage.setItem('autoclick', autoClick);
-  localStorage.setItem('factory', factories);
-  localStorage.setItem('multiplier', multiplier);
-  localStorage.setItem('prestiges', prestige);
-  localStorage.setItem('prestigeCost', prestCost);
-  localStorage.setItem('prestMultiplier', prestMultiplier);
-  alert('Saved!')
-}
-function load() {
-  cookieCount = localStorage.getItem('cookiecount');
-  cookieCount = parseInt(cookieCount);
-  autoClick = localStorage.getItem('autoclick');
-  autoClick = parseInt(autoClick);
-  factories = localStorage.getItem('factory');
-  factories = parseInt(factories);
-  multiplier = localStorage.getItem('multiplier');
-  multiplier = parseInt(multiplier);
-  prestige = localStorage.getItem('prestiges');
-  prestige = parseInt(prestige) ;
-  prestCost = localStorage.getItem('prestigeCost');
-  prestCost = parseInt(prestCost);
-  prestMultiplier = localStorage.getItem('prestMultiplier');
-  prestMultiplier = parseInt(prestMultiplier);
-  clicks = localStorage.getItem('CookieClicks');
-  clicks = parseInt(clicks);
   update();
 }
 function buyAutoClick() {
@@ -105,33 +74,11 @@ function upgradeMultiplier() {
     update();
   }
 }
-function dataWipe() {
-  localStorage.setItem('cookiecount', 0);
-  localStorage.setItem('autoclick', 0);
-  localStorage.setItem('factory', 0);
-  localStorage.setItem('multiplier', 1);
-  localStorage.setItem('prestige', 0);
-  localStorage.setItem('prestigeCost', 1000000);
-  localStorage.setItem('prestMultiplier', 1);
-}
-function reset() {
-  dataWipe();
-  cookieCount = 0;
-  autoClick = 0;
-  factories = 0;
-  multiplier = 1;
-  prestige = 0;
-  prestCost = 1000000;
-  prestMultiplier = 1;
-  document.getElementById('text').value = cookieCount;
-}
 function rebirth() {
   if (cookieCount >= prestCost) {
-    dataWipe();
     alert('Restarted!');
-    update();
     prestige += 1;
-    cookieCount = 0;
+    cookieCount = Infinity;
     autoClick = 0;
     factories = 0;
     multiplier *= 2;

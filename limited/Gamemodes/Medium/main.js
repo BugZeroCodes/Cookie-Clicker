@@ -43,11 +43,21 @@ function timer() {
   cookieCount += autoClick + factories * attackMultiplier;
   update();
 }
+// Intervals
 setInterval(timer, 1000);
 setInterval(add, 1000);
+setInterval(blink, 1000);
 function damage() {
   bossHealth -= 1;
   update();
+}
+function changeCookie(imageURL) {
+  $('#cookie img').attr('src', imageURL);
+}
+function blink() {
+  changeCookie('../../../../Cookie clicker/img/phase1.png');
+  $('#cookie img').delay(1000);
+  changeCookie('../../../../Cookie clicker/img/cookieboss.png');
 }
 function add() {
   if (miners !== 0) {
