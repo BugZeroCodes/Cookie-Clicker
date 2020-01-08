@@ -98,7 +98,7 @@ function checkBadges() {
 function changeCookie(imageURL) {
   $('#cookie img').attr('src', imageURL);
 }
-alert("For development of The Cookie Anomaly LTM, updates on Campaign will be on hold until the LTM is released(2020).")
+alert("For development of The Cookie Anomaly LTM, updates on Campaign will be on hold until the LTM is complete.")
 var multiplier = 1;
 var cookieCount = 0;
 var autoClick = 0;
