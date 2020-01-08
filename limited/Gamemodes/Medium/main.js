@@ -20,6 +20,7 @@ function update() {
   $('#cookiesPerSecond').html((autoClick * multiplier) + (factories * 5 * attackMultiplier) + ' hits per second')
   $('#cookies').html(cookieCount);
   if (bossHealth <= 0) {
+    clearInterval(hitPoint);
     document.location.reload();
     alert("Hurray! You've beat the boss!");
     var playAgain = confirm("Would you like to play again?(You will be asked twice.)");
@@ -44,9 +45,8 @@ function timer() {
   update();
 }
 // Intervals
-setInterval(timer, 1000);
+var hitPoint = setInterval(timer, 1000);
 setInterval(add, 1000);
-setInterval(blink, 1000);
 function damage() {
   bossHealth -= 1;
   update();
